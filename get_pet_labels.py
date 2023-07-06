@@ -45,11 +45,12 @@ def get_pet_labels(image_dir):
     dir_list = listdir(image_dir)
     results_dic = {}
     for file_name in dir_list:
-        file_names = file_name.replace('_', ' ')
-        str_value = file_names[:file_names.index('0')].strip().lower()
+        if file_name[0] != '.':
+            file_names = file_name.replace('_', ' ')
+            str_value = file_names[:file_names.index('0')].strip().lower()
 
-        if file_name not in results_dic:
+            if file_name not in results_dic:
         # Assign a value to the file_name key in the results_dic dictionary
-            results_dic[file_name] = [str_value]  # Replace "some value" with the actual value you want to assign
+                results_dic[file_name] = [str_value]  # Replace "some value" with the actual value you want to assign
 
     return results_dic
