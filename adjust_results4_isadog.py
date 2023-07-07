@@ -87,4 +87,3 @@ def adjust_results4_isadog(results_dic, dogfile):
                 value.append(1)
             else:
                 value.append(0)
-    None
