@@ -109,8 +109,10 @@ def calculates_results_stats(results_dic):
     pct_match = (n_match / n_images) * 100 
     pct_correct_dogs = (n_correct_dogs / n_dogs_img) * 100
     pct_correct_breed = (n_correct_breed / n_dogs_img) * 100
-    if n_notdogs_img > 0:
-    pct_correct_notdogs = (n_correct_notdogs / n_notdogs_img) * 100
+    if n_notdogs_img != 0:
+        pct_correct_notdogs = (n_correct_notdogs / n_notdogs_img) * 100
+    elif n_notdogs_img == 0:
+        pct_correct_notdogs = 0
     # Add the statistics to the dictionary
     results_stats_dic['n_images'] = n_images
     results_stats_dic['n_dogs_img'] = n_dogs_img
