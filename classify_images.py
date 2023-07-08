@@ -72,8 +72,8 @@ def classify_images(images_dir, results_dic, model):
         normalized_labels = [label.strip() for label in classifier_labels.lower().split(',')]
         
         if pet_label[0] in normalized_labels:
-                results_dic[image_filename].append(classifier_labels.strip().lower())
-                results_dic[image_filename].append(1)
-            else:
-                results_dic[image_filename].append(classifier_labels.strip().lower())
-                results_dic[image_filename].append(0)
+            results_dic[image_filename].append(classifier_labels.strip().lower())
+            results_dic[image_filename].append(1)
+        else:
+            results_dic[image_filename].append(classifier_labels.strip().lower())
+            results_dic[image_filename].append(0)
