@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+a#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/adjust_results4_isadog.py
 #                                                                             
@@ -81,9 +81,13 @@ def adjust_results4_isadog(results_dic, dogfile):
             value.append(0)
         
         # Check if the classifier label is a dog
-        normalized_labels = [label.strip() for label in value[1].lower().split(',')]
-        for valu in normalized_labels:
-            if valu in dog_names:
-                value.append(1)
-            else:
-                value.append(0)
+        # normalized_labels = [label.strip() for label in value[1].lower().split(',')]
+        # for valu in normalized_labels:
+            # I do not feel good why are we not turning classifier string into a list so we iterate through it and check if it matches any dog name
+         # plus I would actually save the index inthe classifier list I formed in classify images.py because there may be more than dog in the classify string that matches the name of dogs in dogname.txt.
+            # nor I would use the match value whether 0 or one to know whether I would compare the name of pet_label with the dog names.txt or if not match just straight up append zero
+            
+        if value[1] in dog_names:
+            value.append(1)
+        else:
+            value.append(0)
