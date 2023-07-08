@@ -81,9 +81,9 @@ def adjust_results4_isadog(results_dic, dogfile):
             value.append(0)
         
         # Check if the classifier label is a dog
-        normalized_labels = [label.strip() for label in value[1].lower().split(",")]
-        for values in normalized_labels:
-            if values in dog_names:
+        normalized_labels = [label.strip() for label in value[1].lower()]
+        
+        if value[1] in dog_names:
                 value.append(1)
             else:
                 value.append(0)
