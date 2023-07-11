@@ -86,7 +86,7 @@ def calculates_results_stats(results_dic):
         # Check if the image is a dog
         if results_dic[key][3] == 1:
             n_dogs_img += 1
-        else:
+        elif results_dic[key][3] == 0:
             n_notdogs_img += 1
 
         # Check if there is a match between pet and classifier labels
@@ -109,10 +109,10 @@ def calculates_results_stats(results_dic):
     pct_match = (n_match / n_images) * 100 
     pct_correct_dogs = (n_correct_dogs / n_dogs_img) * 100
     pct_correct_breed = (n_correct_breed / n_dogs_img) * 100
-    if n_notdogs_img != 0:
+    if n_notdogs_img > 0:
         pct_correct_notdogs = (n_correct_notdogs / n_notdogs_img) * 100
-    elif n_notdogs_img == 0:
-        pct_correct_notdogs = 0
+    else:
+        pct_correct_notdogs = 0.0
     # Add the statistics to the dictionary
     results_stats_dic['n_images'] = n_images
     results_stats_dic['n_dogs_img'] = n_dogs_img
