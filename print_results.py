@@ -84,6 +84,6 @@ def print_results(results_dic, results_stats_dic, model,
     if print_incorrect_breed:
         print("\n** Incorrectly Classified Dog Breeds **")
         for key in results_dic:
-            if results_dic[key][3] == 1 and results_dic[key][2] == 0:
+            if (results_dic[key][3] and results_dic[4]) and results_dic[key][2] == 0:
                 print("Pet Image: {}, Classifier Label: {}".format(results_dic[key][0], results_dic[key][1]))
                 
