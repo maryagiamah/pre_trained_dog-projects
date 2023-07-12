@@ -69,11 +69,11 @@ def classify_images(images_dir, results_dic, model):
     # Call the classifier function to get the classification label
         image_path = images_dir + image_filename
         classifier_labels = classifier(image_path, model)
-        normalized_labels = [label.strip() for label in classifier_labels.lower().split(',')]
+        classifier_labels = classifier_labels.strip().lower()
         
-        if pet_label[0] in normalized_labels:
-            results_dic[image_filename].append(classifier_labels.strip().lower())
+        if pet_label[0] in classifier_labels:
+            results_dic[image_filename].append(classifier_labels)
             results_dic[image_filename].append(1)
         else:
-            results_dic[image_filename].append(classifier_labels.strip().lower())
+            results_dic[image_filename].append(classifier_labels)
             results_dic[image_filename].append(0)
